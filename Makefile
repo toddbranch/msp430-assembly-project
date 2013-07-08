@@ -9,7 +9,7 @@ ASFLAGS += -mmcu=$(MCU) $(COMMON)
 all:	clean assembly load
 
 assembly:
-	$(AS) $(ASFLAGS) $(APP).S -o $(APP).o
+	$(AS) $(ASFLAGS) $(APP).s -o $(APP).o
 
 load:
 	$(LD) -o $(APP).elf $(APP).o -L /usr/msp430/lib/ldscripts/msp430g2553/ -T /usr/msp430/lib/ldscripts/msp430.x
