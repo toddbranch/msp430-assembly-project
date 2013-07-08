@@ -6,6 +6,8 @@ main:
     mov     #WDTPW, r10
     xor     #WDTHOLD, r10
     mov     r10, &WDTCTL
+    ;initialize stack
+    mov     #RAMEND, r1
     ;code
 
 forever:
