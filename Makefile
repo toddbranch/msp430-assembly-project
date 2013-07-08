@@ -26,5 +26,11 @@ hex-dump-obj:
 hex-dump-elf:
 	msp430-readelf --hex-dump=.text $(APP).elf > dump-elf.lss
 
+debug:
+	mspdebug rf2500 "gdb"
+
+gdb:
+	msp430-gdb
+
 clean:
 	rm -f $(APP).elf $(APP).o function.o dis-elf.lss dis-obj.lss dump-obj.lss dump-elf.lss
