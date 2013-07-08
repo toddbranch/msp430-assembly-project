@@ -11,6 +11,6 @@ main:
 forever:
     jmp     forever
 
-.section    ".vectors", a
+.section    ".vectors", "a"
 .org    0x1e
     .word   main
