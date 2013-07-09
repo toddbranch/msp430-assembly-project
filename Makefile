@@ -33,6 +33,7 @@ gdb:
 	msp430-gdb
 
 no-git:
-	rm -rf .git .gitignore README.md
+	rm -rf .git .gitignore README.*
+
 clean:
 	rm -f $(APP).elf $(APP).o function.o dis-elf.lss dis-obj.lss dump-obj.lss dump-elf.lss
