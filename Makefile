@@ -3,13 +3,19 @@ MCU=msp430g2553
 
 AS=msp430-as
 LD=msp430-ld
-COMMON=-Wall -v
+CC=msp430-gcc
+COMMON=-Wall -v -I.
 ASFLAGS += -mmcu=$(MCU) $(COMMON)
+CFLAGS += -mmcu=$(MCU) $(COMMON)
+LDFLAGS = -nostartfiles -nostdlib
 
-all:	clean assembly load
+all:	clean $(APP).elf
+
+$(APP).elf: $(APP).o
+	$(CC) $(CFLAGS) $(APP).o $(LDFLAGS) -o $(APP).elf
 
 assembly:
-	$(AS) $(ASFLAGS) $(APP).s -o $(APP).o
+	$(AS) $(ASFLAGS) $(APP).S -o $(APP).o
 
 load:
 	$(LD) -o $(APP).elf $(APP).o -L /usr/msp430/lib/ldscripts/msp430g2553/ -T /usr/msp430/lib/ldscripts/msp430.x
