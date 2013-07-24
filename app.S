@@ -1,4 +1,4 @@
-.include "header.s"
+#include <msp430.h>
 
 .text
 main:
