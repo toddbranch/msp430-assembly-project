@@ -1,5 +1,7 @@
 #include <msp430.h>
 
+.equ        RAMEND, 0x0400
+
 .text
 main:
     ;disable watchdog timer
